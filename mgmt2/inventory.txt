@@ -1,0 +1,17 @@
+[linux]
+dhcp1
+dhcp2
+util
+docker
+[windows]
+mgmt1
+dfs1
+dfs2
+dc1
+dc3
+[windows:vars]
+ansible_user=administrator@final.local
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_port=5986

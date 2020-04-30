@@ -1,0 +1,17 @@
+---
+- name: This adds windows domain user named Test
+  hosts: dc1
+  tasks:
+          - name: configures user account
+            win_domain_user:
+                    domain_username: Administrator@final.local
+                    domain_password: Ch@mpl@1n
+                    name: test
+                    firstname: testfirst
+                    surname: testlast
+                    password: newPassword123@!
+                    password_expired: no
+                    enabled: yes
+                    account_locked: no
+                    groups: "Domain Users"
+                    upn: test@final.local

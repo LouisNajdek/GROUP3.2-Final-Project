@@ -1,0 +1,22 @@
+---
+- name: Creates a new user on util
+  become: yes
+  become_user: root
+  hosts: util
+  vars_files:
+          - my_vault.yml
+  tasks:
+          - name: Creates a user
+            user:
+                    name: newuser
+                    comment: "newuser"
+                    state: present
+                    shell: /bin/bash
+                    system: no
+                    createhome: yes
+          - name: Unlock password and set it to empty
+            command: passwd -d newuser
+
+          - name: Expire password
+            command: chage -d 0 newuser
+                     
